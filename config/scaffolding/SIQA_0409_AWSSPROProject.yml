@@ -2,16 +2,32 @@ version: "1.0"
 info:
   model: int-scaffold
 packages:
+- name: TPP_services_in_FCS
+  version: "1.0"
+  gitServerName: SIQA_KVV_IBM
+  gitUrl: https://github.com/Karthik-V-IBM-10
+  gitUsername: Karthik-V-IBM-10
+  gitBranch: main
 - name: SIQA_0409_AWSSPROProject
   gitServerName: SIQA_KVV_IBM
   gitUrl: https://github.com/Karthik-V-IBM-10
   gitUsername: Karthik-V-IBM-10
   gitBranch: main
-- name: TPP_services_in_FCS
-  gitServerName: SIQA_KVV_IBM
-  gitUrl: https://github.com/Karthik-V-IBM-10
-  gitUsername: Karthik-V-IBM-10
-  gitBranch: main
+services:
+- serviceName: project.siqa_0409_awsspro.integrations:tppdaf
+  packages:
+  - name: SIQA_0409_AWSSPROProject
+    version: "1.0"
+  - name: TPP_services_in_FCS
+    version: "1.0"
+- serviceName: services:add3Ints
+  packages:
+  - name: TPP_services_in_FCS
+    version: "1.0"
+- serviceName: pub.math:addInts
+  packages:
+  - name: WmPublic
+    version: 11.1.0.0.2028
 configurationVariables:
   jdbc.jdbcTestPool.waitingThread: "0"
   jdbc.jdbcTestPool.minConns: "0"
